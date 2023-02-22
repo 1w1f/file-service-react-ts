@@ -5,8 +5,11 @@ import {
   UnorderedListOutlined,
   CloudOutlined,
   ContainerOutlined,
+  BookOutlined
 } from "@ant-design/icons";
 import { Outlet, useNavigate } from "react-router-dom";
+import styles from "./baseLayout.module.less"
+import "../less/baseLess.less"
 
 interface IAntdMenuItemOnClickArgs {
   item: any;
@@ -18,6 +21,9 @@ interface IAntdMenuItemOnClickArgs {
 const { Header, Content, Footer, Sider } = Layout;
 
 export default function () {
+
+  console.log(styles);
+
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
   const goRoute = useCallback((routePath: string) => {
@@ -59,19 +65,16 @@ export default function () {
     <div>
       <Layout style={{ minHeight: "100vh" }}>
         <Sider
+          className={styles.sider}
           collapsible
           collapsed={collapsed}
           onCollapse={(value) => setCollapsed(value)}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              color: "white",
-              alignContent: "center",
-            }}
-          >
-            <span>云盘</span>
+          <div id={styles.siderTitle}>
+            <BookOutlined />
+            {
+              collapsed ? null : <span id={styles.title}>CloudDisk</span>
+            }
           </div>
           <Menu
             theme="dark"
@@ -93,3 +96,4 @@ export default function () {
     </div>
   );
 }
+
