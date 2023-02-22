@@ -84,7 +84,7 @@ export default function () {
           />
         </Sider>
         <Layout className="site-layout">
-          <Header style={{ padding: 0 }} />
+          <Header style={{ padding: 0, height: 52 }} />
           <Content style={{ margin: 8 }}>
             <Outlet />
           </Content>
