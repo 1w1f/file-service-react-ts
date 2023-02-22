@@ -3,23 +3,35 @@ import React, { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { SetAuth } from "../common/AuthHelper";
-import Password from "antd/lib/input/Password";
+
+
+type userInfo = {
+  userName: string,
+  passWord: string
+}
+
+
+
 
 export default function login() {
   const Navigate = useNavigate();
   useEffect(() => {
-    return () => {};
+    return () => { };
   }, []);
 
   const Login = useCallback(
     (value: { username: string; password: string; remember: boolean }) => {
-      let useInfo: object = { name: value.username };
-      if (value.remember) {
-        useInfo = { ...useInfo, passWord: value.password };
+      let userInfo: userInfo = {
+        userName: value.username,
+        passWord: value.password
+      };
+
+      if (true) {
+        SetAuth(userInfo);
+        Navigate("/home");
+      } else {
+        Navigate("/404")
       }
-      if(serive)
-      SetAuth(useInfo);
-      Navigate("/home");
     },
     []
   );
@@ -46,7 +58,7 @@ export default function login() {
           <span
             style={{ fontSize: "30px", fontWeight: "500", color: "#284651" }}
           >
-            小仓鼠云盘
+            CloudDisk
           </span>
         </div>
         <div></div>
