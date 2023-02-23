@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Avatar, Popover, Space, Button } from "antd";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   UserOutlined,
@@ -29,6 +29,18 @@ export default function () {
   const goRoute = useCallback((routePath: string) => {
     navigate(`${routePath}`);
   }, []);
+
+  const userPoperOverContent = useMemo(() => {
+
+    return <Space direction="vertical" align="center">
+      <Button type="primary">个人中心</Button>
+      <Button danger>退出登录</Button>
+    </Space>
+  }, [])
+
+
+
+
   const items = useMemo(() => {
     return [
       {
@@ -83,8 +95,14 @@ export default function () {
             items={items}
           />
         </Sider>
-        <Layout className="site-layout">
-          <Header style={{ padding: 0, height: 52 }} />
+        <Layout className={styles.siteLayout}>
+          <Header className={styles.header} style={{ padding: 0, height: 52 }}>
+            <Popover className={styles.avatarPopoveer} content={userPoperOverContent} align={{ offset: [0, 14] }}
+              placement="top">
+              <Avatar className={styles.avatar} size={32} icon={<UserOutlined />} />
+              <span id={styles.username}>我的名字</span>
+            </Popover>
+          </Header>
           <Content style={{ margin: 8 }}>
             <Outlet />
           </Content>
