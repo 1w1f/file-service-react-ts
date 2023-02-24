@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/login";
 import NotFound from "./pages/NotFound";
 
-function App() {
+function App() {  
   return (
     <Routes>
       <Route path="/" element={<Navigate to={"/login"} replace />} />

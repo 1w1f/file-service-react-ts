@@ -3,21 +3,15 @@ import React, { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { SetAuth } from "../common/AuthHelper";
-
-
-type userInfo = {
-  userName: string,
-  passWord: string
-}
-
-
-
+import { useUserContext } from "../Context/UserContext";
 
 export default function login() {
+
+
+  const { userName, setUserName } = useUserContext();
+  console.log(`userName${userName}`);
+
   const Navigate = useNavigate();
-  useEffect(() => {
-    return () => { };
-  }, []);
 
   const Login = useCallback(
     (value: { username: string; password: string; remember: boolean }) => {
@@ -25,14 +19,13 @@ export default function login() {
         userName: value.username,
         passWord: value.password
       };
-
       if (true) {
+        setUserName(value.username)
         SetAuth(userInfo);
         Navigate("/home");
       } else {
         Navigate("/404")
       }
-
     },
     []
   );
@@ -65,6 +58,8 @@ export default function login() {
         <div></div>
         <Form
           onFinish={(values) => {
+            console.log(values);
+
             Login(values);
           }}
         >

@@ -1,0 +1,1 @@
+export const AUTH = "FileService_Auth";

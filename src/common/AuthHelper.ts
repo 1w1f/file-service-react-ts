@@ -1,6 +1,5 @@
+import { AUTH } from "../softWareEnv";
 import { local } from "../utils/store";
-
-const AUTH = "FileService_Auth";
 
 export default function GetAuth(): string {
   let authValue = local.get(AUTH);
