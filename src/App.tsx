@@ -9,48 +9,46 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Navigate to={"/login"} replace />} />
+    <Routes>
+      <Route path="/" element={<Navigate to={"/login"} replace />} />
+      <Route
+        path="/login"
+        element={
+          <AuthRoute>
+            <Login />
+          </AuthRoute>
+        }
+      />
+      <Route element={<BaseLayout />}>
+        <Route index element={<Navigate to={"/home"} replace />} />
         <Route
-          path="/login"
+          path="/home"
           element={
             <AuthRoute>
-              <Login />
+              <Home />
             </AuthRoute>
           }
         />
-        <Route element={<BaseLayout />}>
-          <Route index element={<Navigate to={"/home"} replace />} />
-          <Route
-            path="/home"
-            element={
-              <AuthRoute>
-                <Home />
-              </AuthRoute>
-            }
-          />
-          <Route
-            path="/files"
-            element={
-              <AuthRoute>
-                <Files />
-              </AuthRoute>
-            }
-          />
-          <Route
-            path="/diskDetail"
-            element={
-              <AuthRoute>
-                <DiskDetail />
-              </AuthRoute>
-            }
-          />
-        </Route>
-        <Route path="/404" element={<NotFound />} />
-        <Route path="*" element={<Navigate to={"/404"} replace />} />
-      </Routes>
-    </div>
+        <Route
+          path="/files"
+          element={
+            <AuthRoute>
+              <Files />
+            </AuthRoute>
+          }
+        />
+        <Route
+          path="/diskDetail"
+          element={
+            <AuthRoute>
+              <DiskDetail />
+            </AuthRoute>
+          }
+        />
+      </Route>
+      <Route path="/404" element={<NotFound />} />
+      <Route path="*" element={<Navigate to={"/404"} replace />} />
+    </Routes>
   );
 }
 
