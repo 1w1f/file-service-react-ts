@@ -31,7 +31,7 @@ export default function () {
   const userPoperOverContent = useMemo(() => {
 
     return <Space direction="vertical" align="center">
-      <Button type="primary">个人</Button>
+      <Button type="primary">个人资料</Button>
       <Button danger>退出登录</Button>
     </Space>
   }, [])

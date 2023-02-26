@@ -1,0 +1,63 @@
+.Height100percent {
+    height: 100%
+}
+
+
+
+
+.fontColor {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.actionRow {
+    height: 20%;
+    margin-top: 24px;
+
+    .actionTitle {
+        .Height100percent();
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .ColRow {
+        cursor: pointer;
+        height: 80%;
+        border-radius: 8px;
+        background-color: white;
+        justify-content: center;
+
+        .topRow {
+            .Height100percent();
+
+            span {
+                .fontColor();
+                font-size: 24px;
+            }
+        }
+
+        .bottomRow {
+            .Height100percent();
+
+            span {
+                color: rgba(36, 36, 190, 0.63);
+                margin-right: 20px;
+                font-size: 16px;
+            }
+        }
+
+        &:hover {
+            box-shadow: 10px 6px 10px rgba(6, 6, 19, 0.2);
+            transition: box-shadow 0.5s, border-color 0.2s;
+        }
+    }
+}
+
+.bodyRow {
+    height: 80%;
+
+    .bodyContent {
+        flex: 1;
+
+    }
+}
