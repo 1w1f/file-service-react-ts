@@ -105,7 +105,7 @@ export default function () {
             <Outlet />
           </Content>
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
+            CloudDisk  hosted by .net6
           </Footer>
         </Layout>
       </Layout>

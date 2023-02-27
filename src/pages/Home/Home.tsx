@@ -1,11 +1,23 @@
-import { Card, Col, Divider, Row, Space } from "antd";
+import { Card, Col, Divider, List, Row, Space } from "antd";
 import React from "react";
 import styles from "./Home.module.less"
 
 
 
 export default function Home() {
+  const Topdata = [
+    'Racing car sprays burning fuel into crowd.',
+    'Japanese princess to wed commoner.',
+    'Australian walks 100km after outback crash.',
+    'Man charged over missing wedding girl.',
+    'Los Angeles battles huge wildfires.',
+    'Los Angeles battles huge wildfires.',
+    'Los Angeles battles huge wildfires.',
+    'Los Angeles battles huge wildfires.',
+    'Los Angeles battles huge wildfires.',
+    'Los Angeles battles huge wildfires.',
 
+  ];
 
   return (<><Row className={styles.actionRow} gutter={[16, 0]} >
     <Col span={2}>
@@ -81,27 +93,45 @@ export default function Home() {
     </Col >
   </Row >
     <Divider />
-    <Row className={styles.bodyRow}>
-      <Row className={styles.bodyContent} gutter={[12, 0]}>
-        <Col span={8} >
-          <Row>
-            1111
+    <Row className={styles.bodyRow} >
+      <Row className={styles.bodyContent} gutter={[6, 0]} justify='space-around'>
+        <Col span={7} className={styles.bodyContentColumn}>
+          <Row className={styles.bodyContentRow}>
+            <Col span={24}>
+              <span className={styles.columnTitle}>
+                资源类型占比
+              </span>
+            </Col>
           </Row>
         </Col>
-        <Col span={8} >
-          <Row>
-            1111
+        <Col span={7} className={styles.bodyContentColumn}>
+          <Row className={styles.bodyContentRow} wrap>
+            <Col span={24}>
+              <span className={styles.columnTitle}>
+                热门排行
+              </span>
+              <div style={{ height: '87%', overflow: 'auto' }}>
+                <List bordered style={{ borderRadius: '20px' }}
+                  dataSource={Topdata}
+                  renderItem={(item, index) =>
+                    <List.Item style={index !== Topdata.length - 1 ? { borderBottom: '1px solid #d9d9d9' } : {}}>
+                      <span> {item}</span>
+                    </List.Item>}>
+                </List>
+              </div>
+            </Col>
           </Row>
         </Col>
-        <Col span={8} >
-          <Row>
-            1111
+        <Col span={7} className={styles.bodyContentColumn}>
+          <Row className={styles.bodyContentRow}>
+            <Col span={24}>
+              <span className={styles.columnTitle}>
+                回收站
+              </span>
+            </Col>
           </Row>
         </Col>
       </Row>
     </Row>
   </>)
-
-
-
 }
