@@ -104,8 +104,8 @@ export default function () {
           <Content style={{ margin: 8 }}>
             <Outlet />
           </Content>
-          <Footer style={{ textAlign: "center" }}>
-            CloudDisk  hosted by .net6
+          <Footer className="p-0" style={{ height: '30px', textAlign: "center" }}>
+            CloudDisk  hosted by .Net6
           </Footer>
         </Layout>
       </Layout>
