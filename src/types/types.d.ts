@@ -20,3 +20,10 @@ interface IAntdMenuItemOnClickArgs {
     keyPath: any;
     domEvent: any;
 }
+
+
+interface ActionCardInfo {
+    title: string,
+    text: string,
+    containerClassName?: string,
+}

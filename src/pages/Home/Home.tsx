@@ -4,97 +4,23 @@ import React, { useState } from "react";
 import ActionCard from "../../components/ActionCard";
 import styles from "./Home.module.less"
 
-
+const cardInfo: ActionCardInfo[] = [{ title: '云盘容量', text: "已使用/总量 60%" }, { title: '操作记录', text: '近7天内操作数：' }, { title: '公共区', text: '最近上新：1' }, {
+  title: '登录记录', text: '上次登录：22/10/11 18: 00: 59'
+}]
 
 export default function Home() {
-
-
-  // return (<><Row className={styles.actionRow} gutter={[16, 0]} >
-  //   <Col span={2}>
-  //     <Row className={styles.actionTitle} align="middle" >
-  //       信息统计:
-  //     </Row>
-  //   </Col>
-  //   <Col span={5}  >
-  //     <Row className={styles.ColRow} >
-  //       <Col span={24}>
-  //         <Row className={styles.topRow} justify='center' align="bottom">
-  //           <span className={styles.span}>
-  //             云盘容量
-  //           </span>
-  //         </Row>
-  //       </Col>
-  //       <Col span={24}>
-  //         <Row className={styles.bottomRow} align='middle' justify='end'>
-  //           <span>已使用/总量  80%</span>
-  //         </Row>
-  //       </Col>
-  //     </Row>
-  //   </Col>
-  //   <Col span={5}>
-  //     <Row className={styles.ColRow} >
-  //       <Col span={24}>
-  //         <Row className={styles.topRow} justify='center' align="bottom">
-  //           <span>
-  //             操作记录
-  //           </span>
-  //         </Row>
-  //       </Col>
-  //       <Col span={24}>
-  //         <Row className={styles.bottomRow} justify='end' align="middle">
-  //           <span>
-  //             近7天内操作数：
-  //           </span>
-  //         </Row>
-  //       </Col>
-  //     </Row>
-  //   </Col>
-  //   <Col span={5} >
-  //     <Row className={styles.ColRow} >
-  //       <Col span={24}>
-  //         <Row className={styles.topRow} justify='center' align="bottom">
-  //           <span className={styles.span}>
-  //             公共区
-  //           </span>
-  //         </Row>
-  //       </Col>
-  //       <Col span={24}>
-  //         <Row className={styles.bottomRow} justify='end' align="middle">
-  //           <span >
-  //             最近上新：1
-  //           </span>
-  //         </Row>
-  //       </Col>
-  //     </Row>
-  //   </Col>
-  //   <Col span={5} >
-  //     <Row className={styles.ColRow}>
-  //       <Col span={24} >
-  //         <Row justify="center" className={styles.topRow} align='bottom' >
-  //           <span className={styles.span}>登录记录</span>
-  //         </Row>
-  //       </Col>
-  //       <Col span={24} >
-  //         <Row justify="center" className={styles.bottomRow} align="middle">
-  //           <span style={{ marginLeft: '0px', color: 'grey' }}>上次登录: 2022/10/11 18:00:59</span>
-  //         </Row>
-  //       </Col>
-  //     </Row>
-  //   </Col >
-  // </Row >
-  // <Divider />
-
-
-  // useState(["云盘容量",]);
+  const [cardInfoState, setCarInfoState] = useState(cardInfo);
   return (<>
-    <div className="grid grid-rows-[25%_75%] bg-red-100 h-full">
-      <div className="row-1 bg-yellow-50 grid grid-cols-4">
-        <ActionCard title="111" text="ss" containerClassName="bg-red-800" />
-        <ActionCard title="111" text="ss" />
-        <ActionCard title="111" text="ss" />
-        <ActionCard title="111" text="ss" />
+    <div className="grid mt-4 grid-rows-[13%_87%] gap-y-5  h-full">
+      <div className="row-1 gap-x-7  grid grid-cols-4">
+        {cardInfoState.map(item => <ActionCard title={item.title} text={item.text} containerClassName="bg-yellow-800 mx-5" />)}
       </div>
-      <div className="row-2 bg-blue-50" ></div>
+      <div className="row-2 bg-blue-100 mt-6" >
+        1
+      </div>
     </div>
   </>)
 }
+
+
+
